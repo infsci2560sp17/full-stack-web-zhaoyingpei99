@@ -2,14 +2,19 @@
 
 TODO : Please provide a detailed project description.
 
+
 ## Build status
 
-TODO : 
+
 [![Build Status](https://travis-ci.org/infsci2560sp17/full-stack-web-zhaoyingpei99.svg?branch=master)](https://travis-ci.org/infsci2560sp17/full-stack-web-zhaoyingpei99)
+
+## Changelog
+
+[(https://fathomless-reef-11403.herokuapp.com/)]
 
 ## Web Site
 
-TODO : [(https://fathomless-reef-11403.herokuapp.com/)]
+[(https://fathomless-reef-11403.herokuapp.com/)]
 
 ## Key Features
 
