@@ -1,6 +1,15 @@
-# TODO : Your Project Name
+# CookUrself
 
-TODO : Please provide a detailed project description.
+1. What is the proposed name for your Web application?
+    - CookUrself
+2. Who is the target audience for your Web application?
+    - People want to effciently cook beautiful food by themselves 
+3. What problem is it intended to solve for the target audience?
+    - There are thousands of food style in the world. Different people obviously like different kind of food. The hardest thing is how to find what food the target audience really want to cook. As a result, it is necessary to let all the audience be able to interact with each other so that people can get recipes they really like to do.           
+4. How will it meet the minimum project requirements?
+    - Most of the content will be freely accessible without a login. People can browse the daily recommendation and search what they want as a guest. All data will be accessible through RESTful services by JSON and XML formats. Audience can also log in to interact with others or give a review or feedback for each food.
+5. Why is your proposed Web application unique or creative beyond simply meeting the minimum requirements?
+     - It's very important to give audience a great browsing experience. So I will develop a simply UI in order to let users easily access to everything. Also, there will some advertisement which are designed to attract more users. It's also very critical to make all the recipes included images and feedbacks be true. I will try to estimate if a recipe or review is qualified to be posted online.
 
 
 ## Build status
@@ -10,7 +19,7 @@ TODO : Please provide a detailed project description.
 
 ## Changelog
 
-[]
+[(https://github.com/infsci2560sp17/full-stack-web-zhaoyingpei99/blob/master/Changelog.md)]
 
 ## Web Site
 
