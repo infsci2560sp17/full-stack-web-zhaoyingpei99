@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>User Home</title>
+        <title>Public Food Set</title>
     </head>
     <style > 
         @import url('http://fonts.googleapis.com/css?family=Amarante');
@@ -154,7 +154,7 @@
     </style> 
     <body>
         <div id="wrapper">
-          <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s favourite food list!</h1>
+          <h1 data-th-inline="text">Public Food list!</h1>
           
           <table id="keywords" cellspacing="0" cellpadding="0">
             <thead>
@@ -165,7 +165,7 @@
               </tr>
             </thead>
             <tbody>
-                <tr data-th-each="food : ${foods}">
+                <tr data-th-each="food : ${publicfoods}">
                     <td class="lalign" data-th-text="${food.id}"></td>
                     <td data-th-text="${food.title}"></td>
                     <td data-th-text="${food.cookingStyle}"></td>
@@ -175,65 +175,20 @@
           </table>
           
                   <hr />
-        <table id="keywords2">
-         <thead>
-            <tr>
-                <th><div id="addpersonal">
-                    
-                    <form data-th-action="@{/foods/add}" name="addFoodForm" method="post">
-                        Title: <input type="text" name="title" /><br />
-                        Cooking Style:<br />
-                        <input type="radio" name="cookingStyle" value="Others" checked="checked" /> Others<br />
-                        <input type="radio" name="cookingStyle" value="Chinese" /> Chinese<br />
-                        <input type="radio" name="cookingStyle" value="Mexican" /> Mexican<br />
-                        <input type="radio" name="cookingStyle" value="American" /> American<br />
-                        <input type="radio" name="cookingStyle" value="Japanese" /> Japanese<br />
-                        <input type="radio" name="cookingStyle" value="Italian" /> Italian<br />
-                        <input type="radio" name="cookingStyle" value="French" /> French<br />
-                        <input type="submit" value="Add food in your favorite"/>
-                    </form>
-                </div></th>
-                
-        
-                <th><div id="addtopublic">
-                 <form data-th-action="@{/foods/addtopublic}" name="addFoodFormtoPublic" method="post">
-                    ID: <input type="number" name="id" /><br />
-                    <input type="submit" value="Public your food by ID"/>
+                  
+                <div id="searchinlobby">
+                 <form data-th-action="@{/lobby/search}" name="searchinlobb" method="get">
+                    ID: <input type="number" name="foodid" /><br />
+                    <input type="submit" value="Look into food details by ID"/>
                  </form>
-                </div></th>
-                
-        
-        
-                <th><div id="delete">
-                 <form data-th-action="@{/foods}" name="deletepersonalfood" method="post">
-                    <input type="hidden" name="_method" value="DELETE"/>
-                    ID: <input type="number" name="id" /><br />
-                    <input type="submit" value="Delete your food by ID"/>
-                 </form>
-                </div></th>
-                
-                
-                <th><div id="update">
-                 <form data-th-action="@{/foods}" name="updatepersonalfood" method="post">
-                    <input type="hidden" name="_method" value="PUT"/>
-                    ID: <input type="number" name="id" /><br />
-                     Cooking Style:<br />
-                    <input type="radio" name="cookingStyle" value="Others" checked="checked" /> Others<br />
-                    <input type="radio" name="cookingStyle" value="Chinese" /> Chinese<br />
-                    <input type="radio" name="cookingStyle" value="Mexican" /> Mexican<br />
-                    <input type="radio" name="cookingStyle" value="American" /> American<br />
-                    <input type="radio" name="cookingStyle" value="Japanese" /> Japanese<br />
-                    <input type="radio" name="cookingStyle" value="Italian" /> Italian<br />
-                    <input type="radio" name="cookingStyle" value="French" /> French<br />
-                    <input type="submit" value="Update your food by ID"/>
-                 </form>
-                </div></th>
-            </tr>
-         </thead>
-        </table>
+                </div>
+                            
+  
          </div> 
+         
 
 
+        <p>Click <a data-th-href="@{/foods}">here</a> to come back to your favourite foods.</p>
 
 
                 

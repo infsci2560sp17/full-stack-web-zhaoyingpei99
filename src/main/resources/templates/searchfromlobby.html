@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>User Home</title>
+        <title>Public Food Set</title>
     </head>
     <style > 
         @import url('http://fonts.googleapis.com/css?family=Amarante');
@@ -68,6 +68,15 @@
           text-align: center;
         }
         
+        h2 { 
+          font-family: 'Amarante', Tahoma, sans-serif;
+          font-weight: bold;
+          font-size: 2.4em;
+          line-height: 2.0em;
+          margin-bottom: 10px;
+          text-align: center;
+        }
+        
         
         /** page structure **/
         #wrapper {
@@ -128,8 +137,8 @@
           margin: 0 auto;
           font-size: 1.3em;
           margin-bottom: 15px;
+          border: 1px solid #bbb;
         }
-        
         
         #keywords2 thead {
           cursor: pointer;
@@ -147,6 +156,11 @@
         #keywords2 thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
           background: #acc8dd;
         }
+        
+        #keywords2 tbody tr td{
+            border-bottom: 1px solid #bbb;
+            padding: 15px 10px;
+        }
 
 
 
@@ -154,7 +168,7 @@
     </style> 
     <body>
         <div id="wrapper">
-          <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s favourite food list!</h1>
+          <h1 data-th-inline="text">Food Details</h1>
           
           <table id="keywords" cellspacing="0" cellpadding="0">
             <thead>
@@ -165,81 +179,77 @@
               </tr>
             </thead>
             <tbody>
-                <tr data-th-each="food : ${foods}">
+                <tr>
                     <td class="lalign" data-th-text="${food.id}"></td>
                     <td data-th-text="${food.title}"></td>
                     <td data-th-text="${food.cookingStyle}"></td>
                 </tr>
+                
+                
              
             </tbody>
           </table>
-          
-                  <hr />
-        <table id="keywords2">
-         <thead>
+          <hr />
+          <table id = "recipes">
             <tr>
-                <th><div id="addpersonal">
+                <h2 data-th-inline="text">Recipe list</h2>
+              
+              <table id="keywords2" cellspacing="0" cellpadding="0">
+                <thead>
+                  <tr>
+                    <th><span>recipes</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr data-th-each="recipe : ${foodrecipes}">
+                        <td data-th-text="${recipe}"></td>
+                    </tr>
                     
-                    <form data-th-action="@{/foods/add}" name="addFoodForm" method="post">
-                        Title: <input type="text" name="title" /><br />
-                        Cooking Style:<br />
-                        <input type="radio" name="cookingStyle" value="Others" checked="checked" /> Others<br />
-                        <input type="radio" name="cookingStyle" value="Chinese" /> Chinese<br />
-                        <input type="radio" name="cookingStyle" value="Mexican" /> Mexican<br />
-                        <input type="radio" name="cookingStyle" value="American" /> American<br />
-                        <input type="radio" name="cookingStyle" value="Japanese" /> Japanese<br />
-                        <input type="radio" name="cookingStyle" value="Italian" /> Italian<br />
-                        <input type="radio" name="cookingStyle" value="French" /> French<br />
-                        <input type="submit" value="Add food in your favorite"/>
-                    </form>
-                </div></th>
-                
-        
-                <th><div id="addtopublic">
-                 <form data-th-action="@{/foods/addtopublic}" name="addFoodFormtoPublic" method="post">
-                    ID: <input type="number" name="id" /><br />
-                    <input type="submit" value="Public your food by ID"/>
-                 </form>
-                </div></th>
-                
-        
-        
-                <th><div id="delete">
-                 <form data-th-action="@{/foods}" name="deletepersonalfood" method="post">
-                    <input type="hidden" name="_method" value="DELETE"/>
-                    ID: <input type="number" name="id" /><br />
-                    <input type="submit" value="Delete your food by ID"/>
-                 </form>
-                </div></th>
-                
-                
-                <th><div id="update">
-                 <form data-th-action="@{/foods}" name="updatepersonalfood" method="post">
-                    <input type="hidden" name="_method" value="PUT"/>
-                    ID: <input type="number" name="id" /><br />
-                     Cooking Style:<br />
-                    <input type="radio" name="cookingStyle" value="Others" checked="checked" /> Others<br />
-                    <input type="radio" name="cookingStyle" value="Chinese" /> Chinese<br />
-                    <input type="radio" name="cookingStyle" value="Mexican" /> Mexican<br />
-                    <input type="radio" name="cookingStyle" value="American" /> American<br />
-                    <input type="radio" name="cookingStyle" value="Japanese" /> Japanese<br />
-                    <input type="radio" name="cookingStyle" value="Italian" /> Italian<br />
-                    <input type="radio" name="cookingStyle" value="French" /> French<br />
-                    <input type="submit" value="Update your food by ID"/>
-                 </form>
-                </div></th>
+                </tbody>
+            
+              </table>
             </tr>
-         </thead>
-        </table>
-         </div> 
-
-
-
-
+            <tr>
+                <form data-th-action="@{/searchfromlobby/addrecipe}" name="addrecipe" method="post">
+                Please Type FoodID: <input type="number" name="id" /><input type="submit" value="submit your recipe"/><br />
+                Please Type your recipe:<textarea rows="4" cols="50" name="recipe"/>
+                </form>
+            </tr>
                 
-        
-       
-        <hr />       
+          </table>    
+          <hr />
+          <table id="reviews">
+            <tr>
+              <h2 data-th-inline="text">Review list</h2>
+              <table id="keywords2" cellspacing="0" cellpadding="0">
+                <thead>
+                  <tr>
+                    <th><span>reviews</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr data-th-each="review : ${foodreviews}">
+                        <td data-th-text="${review}"></td>
+                    </tr>
+                </tbody>
+              </table>
+            </tr>
+            
+            <tr> 
+                <form data-th-action="@{/searchfromlobby/addreview}" name="addreview" method="post">
+                Please Type FoodID: <input type="number" name="id" />  <input type="submit" value="submit your review"/><br />
+                Please Type your review: <textarea rows="4" cols="50" name="review"/>
+                </form>                
+            </tr>
+        </table>
+            
+         </div> 
+          
+          
+          
+        <br />
+        <p>Click <a data-th-href="@{/foods}">here</a> to see your foods or <a data-th-href="@{/lobby}">here</a> back to lobby.</p>
+        <hr />
         <form data-th-action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>

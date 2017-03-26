@@ -17,32 +17,34 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  *
  */
 @Entity
-public class Food {
+public class publicFoods {
 
     private static final long serialVersionUID = 1L;
 
-
+   
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    protected Long publicid;
     protected String title;
     protected CookingStyle cookingStyle;
 
-    public Food() {
-        this.id = Long.MAX_VALUE;
+
+    public publicFoods() {
+        this.publicid = Long.MAX_VALUE;
         this.title = null;
         this.cookingStyle = CookingStyle.Others;
     }
 
-    public Food(Long id, String name, CookingStyle cookingStyle) {
-        this.id = id;
+    public publicFoods(Long id, String name, CookingStyle cookingStyle) {
+        this.publicid = id;
         this.title = name;
         this.cookingStyle = cookingStyle;
     }
 
     @Override
     public String toString() {
-        return "[ id=" + this.id + ", title=" + this.title + ", cookingStyle=" + this.cookingStyle + " ]";
+        return "[ id=" + this.publicid + ", title=" + this.title + ", cookingStyle=" + this.cookingStyle + " ]";
     }
 
     @Override
@@ -87,14 +89,14 @@ public class Food {
      * @return the id
      */
     public Long getId() {
-        return id;
+        return publicid;
     }
 
     /**
      * @param id the id to set
      */
     public void setId(Long id) {
-        this.id = id;
+        this.publicid = id;
     }
 
 }

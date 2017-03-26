@@ -7,7 +7,10 @@ package edu.infsci2560.repositories;
 
 
 import edu.infsci2560.models.Food;
+import edu.infsci2560.models.publicFoods;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 
-public interface FoodRepository extends PagingAndSortingRepository<Food, Long> {}
+public interface PublicFoodRepository extends PagingAndSortingRepository<publicFoods, Long> {
+    publicFoods findByTitle(String title);
+}
