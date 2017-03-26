@@ -19,11 +19,11 @@
 
 ## Changelog
 
-[(https://github.com/infsci2560sp17/full-stack-web-zhaoyingpei99/blob/master/Changelog.md)]
+[Changelog](https://github.com/infsci2560sp17/full-stack-web-zhaoyingpei99/blob/master/Changelog.md)
 
 ## Web Site
 
-[(https://fathomless-reef-11403.herokuapp.com/)]
+[CookUrSelf](https://fathomless-reef-11403.herokuapp.com/)
 
 ## Key Features
 
