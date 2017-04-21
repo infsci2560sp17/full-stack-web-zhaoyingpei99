@@ -60,7 +60,6 @@ public class FoodsController {
         ModelAndView mv1 = new ModelAndView("foods");
         
         String username = request.getRemoteUser();
-        System.out.println(username);
         Long userid = customerrepository.findByUsername(username).getId();
         
         List<FoodtoCustomer> l1 = foodtocustomerrepository.findByCustomerid(userid);
@@ -76,25 +75,45 @@ public class FoodsController {
 
     
     @RequestMapping(value = "foods/add", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView createPersonal(@ModelAttribute @Valid Food food, BindingResult result) {
-
-        repository.save(food);
+    public ModelAndView createPersonal(@ModelAttribute @Valid Food food, BindingResult result, HttpServletRequest request) {
         
-        ModelAndView mv2 = new ModelAndView("foods");
-        mv2.addObject("foods", repository.findAll());
+        
+        publicFoods foodtoadd = new publicFoods();
+        foodtoadd.setTitle(food.getTitle());
+        foodtoadd.setCookingStyle(food.getCookingStyle());
+        publicfoodrepository.save(foodtoadd);
+        
+        Long ctfid = publicfoodrepository.findByTitle(food.getTitle()).getId();
+        
+        String username = request.getRemoteUser();
+        Long userid = customerrepository.findByUsername(username).getId();
+        
+        FoodtoCustomer ftc = new FoodtoCustomer();
+        ftc.setFoodId(ctfid);
+        ftc.setCustomerId(userid);
+        foodtocustomerrepository.save(ftc);
+        
+//        ModelAndView mv2 = new ModelAndView("foods");
+//        mv2.addObject("foods", repository.findAll());
 
-        return mv2;
+        return new ModelAndView("redirect:/foods");
     }
     
     
     @RequestMapping(value = "foods", method = RequestMethod.DELETE, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView deletePersonal(@RequestParam("id") Long id) {
-        repository.delete(id);
+    public ModelAndView deletePersonal(@RequestParam("id") Long id, HttpServletRequest request) {
         
-        ModelAndView mv3 = new ModelAndView("foods");
-        mv3.addObject("foods", repository.findAll());
+        if (publicfoodrepository.findOne(id).getIfpublic() == 0) {
+            publicfoodrepository.delete(id);
+        }
+        String username = request.getRemoteUser();
+        Long userid = customerrepository.findByUsername(username).getId();
+        
+        Long ftcid = foodtocustomerrepository.findByCustomeridAndFoodid(userid, id).getId();
+        foodtocustomerrepository.delete(ftcid);
+ 
+        return new ModelAndView("redirect:/foods");
 
-        return mv3;
     }
     
     @RequestMapping(value = "foods", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
@@ -108,37 +127,39 @@ public class FoodsController {
     }
     
     
-    @RequestMapping(value = "foods/addtopublic", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView publicCreate(@RequestParam("id") Long id,RedirectAttributes redirectAttrs) {
-        Food food = repository.findOne(id);
-        Long foodid;
-        String alert = "";
-        
-        if (publicfoodrepository.findByTitle(food.getTitle()) == null) {
-            CookingStyle cs = food.getCookingStyle(); 
-            foodid = publicfoodrepository.count() + 1; 
-            publicFoods pf = new publicFoods();
-            pf.setTitle(food.getTitle());
-            pf.setId(foodid);
-            pf.setCookingStyle(cs);
-            publicfoodrepository.save(pf);
+    @RequestMapping(value = "foods/addtopublic", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
+    public ModelAndView publicCreate(@RequestParam("id") Long id) {
+            publicFoods food = publicfoodrepository.findOne(id);
+            publicfoodrepository.save(new publicFoods(id, food.getTitle(), food.getCookingStyle(), 1));
+            String alert = "";
             
-            FoodDetail fd2 = new FoodDetail();
-            fd2.setId(foodid);
-            fd2.setNewReview("0");
-            fd2.setNewRecipe("0");
-            fooddetailrepository.save(fd2);
             
-            alert = "Already add in to public!";
-        }
-        else {
-            foodid = publicfoodrepository.findByTitle(food.getTitle()).getId();
-            alert = "This food already exists";
-        }
         
-        redirectAttrs.addAttribute("alert", alert);
-        redirectAttrs.addAttribute("foodid", foodid);
-        return new ModelAndView("redirect:/lobby/search");
+//        if (publicfoodrepository.findByTitle(food.getTitle()) == null) {
+//            CookingStyle cs = food.getCookingStyle(); 
+//            foodid = publicfoodrepository.count() + 1; 
+//            publicFoods pf = new publicFoods();
+//            pf.setTitle(food.getTitle());
+//            pf.setId(foodid);
+//            pf.setCookingStyle(cs);
+//            publicfoodrepository.save(pf);
+//            
+//            FoodDetail fd2 = new FoodDetail();
+//            fd2.setId(foodid);
+//            fd2.setNewReview("0");
+//            fd2.setNewRecipe("0");
+//            fooddetailrepository.save(fd2);
+//            
+//            alert = "Already add in to public!";
+//        }
+//        else {
+//            foodid = publicfoodrepository.findByTitle(food.getTitle()).getId();
+//            alert = "This food already exists";
+//        }
+//        
+//        redirectAttrs.addAttribute("alert", alert);
+//        redirectAttrs.addAttribute("foodid", foodid);
+        return new ModelAndView("redirect:/lobby");
         
     }
   

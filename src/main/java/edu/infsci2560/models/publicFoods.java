@@ -24,27 +24,28 @@ public class publicFoods {
    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
     protected Long publicid;
     protected String title;
     protected CookingStyle cookingStyle;
-
+    private Integer ifpublic;
 
     public publicFoods() {
         this.publicid = Long.MAX_VALUE;
         this.title = null;
         this.cookingStyle = CookingStyle.Others;
+        this.ifpublic = 0;
     }
 
-    public publicFoods(Long id, String name, CookingStyle cookingStyle) {
+    public publicFoods(Long id, String name, CookingStyle cookingStyle, Integer ifpublic) {
         this.publicid = id;
         this.title = name;
         this.cookingStyle = cookingStyle;
+        this.ifpublic = ifpublic;
     }
 
     @Override
     public String toString() {
-        return "[ id=" + this.publicid + ", title=" + this.title + ", cookingStyle=" + this.cookingStyle + " ]";
+        return "[ id=" + this.publicid + ", public=" +this.ifpublic + ", title="+  this.title + ", cookingStyle=" + this.cookingStyle + " ]";
     }
 
     @Override
@@ -98,5 +99,15 @@ public class publicFoods {
     public void setId(Long id) {
         this.publicid = id;
     }
+    
+    public int getIfpublic() {
+        return ifpublic;
+    }
+    
+    public void setIfpublic(int ifpublic) {
+        this.ifpublic = ifpublic;
+    }
+    
+//    
 
 }

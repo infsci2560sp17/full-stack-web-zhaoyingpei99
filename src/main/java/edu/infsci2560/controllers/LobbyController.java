@@ -49,8 +49,7 @@ public class LobbyController {
     @RequestMapping(value = "lobby", method = RequestMethod.GET)
     public ModelAndView index() {
         ModelAndView mv1 = new ModelAndView("lobby");
-        mv1.addObject("foods", repository.findAll());
-        mv1.addObject("publicfoods", publicfoodrepository.findAll());
+        mv1.addObject("publicfoods", publicfoodrepository.findByIfpublic(1));
         return mv1;
     }
     

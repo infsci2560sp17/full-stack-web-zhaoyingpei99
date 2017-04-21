@@ -9,4 +9,5 @@ public interface FoodtoCustomerRepository extends CrudRepository<FoodtoCustomer,
 
     List<FoodtoCustomer> findByCustomerid(Long customerid);
     
+    FoodtoCustomer findByCustomeridAndFoodid(Long customerid, Long foodid);
 }

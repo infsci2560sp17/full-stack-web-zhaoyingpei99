@@ -48,6 +48,17 @@ public class FoodtoCustomer {
         hash = 29 * hash + Objects.hashCode(this.getCustomerId());
         return hash;
     }
+    
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    
 
     /**
      * @return the foodId

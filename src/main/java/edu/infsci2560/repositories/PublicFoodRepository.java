@@ -5,12 +5,15 @@
  */
 package edu.infsci2560.repositories;
 
-
+import java.util.List;
 import edu.infsci2560.models.publicFoods;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 
 public interface PublicFoodRepository extends PagingAndSortingRepository<publicFoods, Long> {
+
+    
     publicFoods findByTitle(String title);
     
+    List<publicFoods> findByIfpublic(Integer ifpublic);
 }

@@ -24,7 +24,7 @@ public class FullStackWebApplication {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(FullStackWebApplication.class, args);
         
-//        PublicFoodRepository publicrepository = ctx.getBean(PublicFoodRepository.class);
+        PublicFoodRepository publicrepository = ctx.getBean(PublicFoodRepository.class);
 //        FoodDetailRepository fooddetailrepository = ctx.getBean(FoodDetailRepository.class);
 //          FoodtoCustomerRepository repository = ctx.getBean(FoodtoCustomerRepository.class);
 //          
@@ -33,14 +33,14 @@ public class FullStackWebApplication {
 //          ftc.setFoodId(4L);
 //          
 //          repository.save(ftc);
-//        publicrepository.save(new publicFoods(1L, "General Tso's chicken", CookingStyle.Chinese));
-//        publicrepository.save(new publicFoods(2L, "Tako", CookingStyle.Mexican));
-//        publicrepository.save(new publicFoods(3L, "Onion soup", CookingStyle.French));
-//        publicrepository.save(new publicFoods(4L, "Ramen", CookingStyle.Japanese));
-//        publicrepository.save(new publicFoods(5L, "CheeseBurger", CookingStyle.American));   
-//        publicrepository.save(new publicFoods(6L, "Hawaii Pizza", CookingStyle.Italian));        
+        publicrepository.save(new publicFoods(1L, "General Tso's chicken", CookingStyle.Chinese, 1));
+        publicrepository.save(new publicFoods(2L, "Tako", CookingStyle.Mexican, 1));
+        publicrepository.save(new publicFoods(3L, "Onion soup", CookingStyle.French, 1));
+        publicrepository.save(new publicFoods(4L, "Ramen", CookingStyle.Japanese, 1));
+        publicrepository.save(new publicFoods(5L, "CheeseBurger", CookingStyle.American, 1));   
+        publicrepository.save(new publicFoods(6L, "Hawaii Pizza", CookingStyle.Italian, 1));        
 ////        
-//        
+        
 //        
 //        
 //        FoodDetail fd4 = new FoodDetail(4L, "boil water and do anything you want!"," love this!!");

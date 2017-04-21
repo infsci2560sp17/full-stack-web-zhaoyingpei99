@@ -201,6 +201,7 @@
         
                 <th><div id="addtopublic">
                  <form data-th-action="@{/foods/addtopublic}" name="addFoodFormtoPublic" method="post">
+                    <input type="hidden" name="_method" value="PUT"/>
                     ID: <input type="number" name="id" /><br />
                     <input type="submit" value="Public your food by ID"/>
                  </form>
