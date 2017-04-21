@@ -12,4 +12,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface PublicFoodRepository extends PagingAndSortingRepository<publicFoods, Long> {
     publicFoods findByTitle(String title);
+    
 }

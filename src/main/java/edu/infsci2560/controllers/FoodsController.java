@@ -1,11 +1,17 @@
 
 package edu.infsci2560.controllers;
 
+
+import java.util.List;
+import java.util.ArrayList;
 import edu.infsci2560.models.Food;
+import edu.infsci2560.models.FoodtoCustomer;
 import edu.infsci2560.models.FoodDetail;
 import edu.infsci2560.models.CookingStyle;
 import edu.infsci2560.models.publicFoods;
+import edu.infsci2560.repositories. CustomerRepository;
 import edu.infsci2560.repositories.FoodRepository;
+import edu.infsci2560.repositories.FoodtoCustomerRepository;
 import edu.infsci2560.repositories.FoodDetailRepository;
 import edu.infsci2560.repositories.PublicFoodRepository;
 import javax.validation.Valid;
@@ -42,14 +48,29 @@ public class FoodsController {
     @Autowired
     private FoodDetailRepository fooddetailrepository;
     
-
+    @Autowired
+    private FoodtoCustomerRepository foodtocustomerrepository;
+    
+    @Autowired
+    private CustomerRepository customerrepository;
 
     
     @RequestMapping(value = "foods", method = RequestMethod.GET)
-    public ModelAndView index() {
+    public ModelAndView index(HttpServletRequest request) {
         ModelAndView mv1 = new ModelAndView("foods");
-        mv1.addObject("foods", repository.findAll());
-        mv1.addObject("publicfoods", publicfoodrepository.findAll());
+        
+        String username = request.getRemoteUser();
+        System.out.println(username);
+        Long userid = customerrepository.findByUsername(username).getId();
+        
+        List<FoodtoCustomer> l1 = foodtocustomerrepository.findByCustomerid(userid);
+        List<publicFoods> result = new ArrayList<publicFoods>();
+        for(FoodtoCustomer ctf : l1) {
+            result.add(publicfoodrepository.findOne(ctf.getFoodId()));
+        }
+        
+        
+        mv1.addObject("foods", result);
         return mv1;
     }
 

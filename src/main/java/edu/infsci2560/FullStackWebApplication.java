@@ -2,9 +2,11 @@
 package edu.infsci2560;
 
 import edu.infsci2560.models.FoodDetail;
+import edu.infsci2560.models.FoodtoCustomer;
 import edu.infsci2560.models.publicFoods;
 import edu.infsci2560.models.CookingStyle;
 import edu.infsci2560.repositories.FoodDetailRepository;
+import edu.infsci2560.repositories.FoodtoCustomerRepository;
 import edu.infsci2560.repositories.PublicFoodRepository;
 
 import org.slf4j.Logger;
@@ -24,7 +26,13 @@ public class FullStackWebApplication {
         
 //        PublicFoodRepository publicrepository = ctx.getBean(PublicFoodRepository.class);
 //        FoodDetailRepository fooddetailrepository = ctx.getBean(FoodDetailRepository.class);
-////        
+//          FoodtoCustomerRepository repository = ctx.getBean(FoodtoCustomerRepository.class);
+//          
+//          FoodtoCustomer ftc = new FoodtoCustomer();
+//          ftc.setCustomerId(1L);
+//          ftc.setFoodId(4L);
+//          
+//          repository.save(ftc);
 //        publicrepository.save(new publicFoods(1L, "General Tso's chicken", CookingStyle.Chinese));
 //        publicrepository.save(new publicFoods(2L, "Tako", CookingStyle.Mexican));
 //        publicrepository.save(new publicFoods(3L, "Onion soup", CookingStyle.French));
