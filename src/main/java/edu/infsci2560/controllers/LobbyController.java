@@ -1,12 +1,15 @@
 package edu.infsci2560.controllers;
 
 import edu.infsci2560.models.Food;
+import edu.infsci2560.models.FoodtoCustomer;
 import edu.infsci2560.models.FoodDetail;
 import edu.infsci2560.models.CookingStyle;
 import edu.infsci2560.models.publicFoods;
+import edu.infsci2560.repositories.FoodtoCustomerRepository;
 import edu.infsci2560.repositories.FoodRepository;
 import edu.infsci2560.repositories.PublicFoodRepository;
 import edu.infsci2560.repositories.FoodDetailRepository;
+import edu.infsci2560.repositories.CustomerRepository;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -41,7 +44,12 @@ public class LobbyController {
     @Autowired
     private FoodDetailRepository fooddetailrepository;
     
+    @Autowired
+    private FoodtoCustomerRepository foodtocustomerrepository;
     
+    @Autowired
+    private CustomerRepository customerrepository;
+
     
     
     
@@ -67,6 +75,23 @@ public class LobbyController {
         mv1.addObject("foodrecipes", fooddetailrepository.findOne(id).getRecipes());
         
         return mv1;
+    }
+    
+    @RequestMapping(value = "lobby/add", method = RequestMethod.POST)
+    public ModelAndView addPersonal(@RequestParam("foodid") Long id, @RequestParam(value = "alert",required = false) String alert, RedirectAttributes redirectAttrs, HttpServletRequest request) {
+        
+        String username = request.getRemoteUser();
+        Long userid = customerrepository.findByUsername(username).getId();
+        
+        
+        FoodtoCustomer ftc = new FoodtoCustomer();
+        ftc.setFoodId(id);
+        ftc.setCustomerId(userid);
+        foodtocustomerrepository.save(ftc);
+        
+      
+        
+        return new ModelAndView("redirect:/foods");
     }
 
 }

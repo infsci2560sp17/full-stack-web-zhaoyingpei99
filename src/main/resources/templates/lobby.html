@@ -182,6 +182,13 @@
                     <input type="submit" value="Look into food details by ID"/>
                  </form>
                 </div>
+                
+                <div id="addtofavourite">
+                 <form data-th-action="@{/lobby/add}" name="searchinlobb" method="post">
+                    ID: <input type="number" name="foodid" /><br />
+                    <input type="submit" value="Choose food and Add to your favourite"/>
+                 </form>
+                </div>
                             
   
          </div> 

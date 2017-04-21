@@ -93,8 +93,6 @@ public class FoodsController {
         ftc.setCustomerId(userid);
         foodtocustomerrepository.save(ftc);
         
-//        ModelAndView mv2 = new ModelAndView("foods");
-//        mv2.addObject("foods", repository.findAll());
 
         return new ModelAndView("redirect:/foods");
     }
@@ -118,47 +116,21 @@ public class FoodsController {
     
     @RequestMapping(value = "foods", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
     public ModelAndView updatePersonal(@RequestParam("id") Long id,@RequestParam("cookingStyle") CookingStyle cookingstyle) {
-        repository.findOne(id).setCookingStyle(cookingstyle);
-        
-        ModelAndView mv4 = new ModelAndView("foods");
-        mv4.addObject("foods", repository.findAll());
+        publicFoods food = publicfoodrepository.findOne(id);
+        publicfoodrepository.save(new publicFoods(id, food.getTitle(), cookingstyle, food.getIfpublic()));
 
-        return mv4;
+        return new ModelAndView("redirect:/foods");
     }
     
     
     @RequestMapping(value = "foods/addtopublic", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
     public ModelAndView publicCreate(@RequestParam("id") Long id) {
-            publicFoods food = publicfoodrepository.findOne(id);
-            publicfoodrepository.save(new publicFoods(id, food.getTitle(), food.getCookingStyle(), 1));
-            String alert = "";
+        publicFoods food = publicfoodrepository.findOne(id);
+        publicfoodrepository.save(new publicFoods(id, food.getTitle(), food.getCookingStyle(), 1));
+        String alert = "";
             
             
-        
-//        if (publicfoodrepository.findByTitle(food.getTitle()) == null) {
-//            CookingStyle cs = food.getCookingStyle(); 
-//            foodid = publicfoodrepository.count() + 1; 
-//            publicFoods pf = new publicFoods();
-//            pf.setTitle(food.getTitle());
-//            pf.setId(foodid);
-//            pf.setCookingStyle(cs);
-//            publicfoodrepository.save(pf);
-//            
-//            FoodDetail fd2 = new FoodDetail();
-//            fd2.setId(foodid);
-//            fd2.setNewReview("0");
-//            fd2.setNewRecipe("0");
-//            fooddetailrepository.save(fd2);
-//            
-//            alert = "Already add in to public!";
-//        }
-//        else {
-//            foodid = publicfoodrepository.findByTitle(food.getTitle()).getId();
-//            alert = "This food already exists";
-//        }
-//        
-//        redirectAttrs.addAttribute("alert", alert);
-//        redirectAttrs.addAttribute("foodid", foodid);
+
         return new ModelAndView("redirect:/lobby");
         
     }
