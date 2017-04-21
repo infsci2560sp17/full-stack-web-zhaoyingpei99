@@ -6,7 +6,6 @@
 package edu.infsci2560.repositories;
 
 
-import edu.infsci2560.models.Food;
 import edu.infsci2560.models.publicFoods;
 import org.springframework.data.repository.PagingAndSortingRepository;
 

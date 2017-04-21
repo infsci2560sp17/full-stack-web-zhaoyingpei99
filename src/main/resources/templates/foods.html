@@ -2,7 +2,10 @@
 <html>
     <head>
         <title>User Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     </head>
+
+    
     <style > 
         @import url('http://fonts.googleapis.com/css?family=Amarante');
         
@@ -152,11 +155,12 @@
 
         
     </style> 
+    
     <body>
         <div id="wrapper">
           <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s favourite food list!</h1>
           
-          <table id="keywords" cellspacing="0" cellpadding="0">
+          <table id="keywords" class="table table-hover" cellspacing="0" cellpadding="0">
             <thead>
               <tr>
                 <th><span>id</span></th>
@@ -175,7 +179,7 @@
           </table>
           
                   <hr />
-        <table id="keywords2">
+        <table id="keywords2" cellspacing="0" cellpadding="0">
          <thead>
             <tr>
                 <th><div id="addpersonal">
@@ -243,5 +247,8 @@
         <form data-th-action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
+        
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>

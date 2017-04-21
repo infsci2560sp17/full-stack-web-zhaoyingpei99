@@ -7,14 +7,32 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
+import edu.infsci2560.services.MyCustomerDetailsService;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    
+    
+//    @Autowired
+//    private MyCustomerDetailsService customerDetailsService;
+//    
+//    @Override
+//    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+//        auth.authenticationProvider(authenticationProvider());
+//    }
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/index", "/about.html", "/public/**","/lobby", "/lobby/search","/searchfromlobby/**").permitAll()
+                .antMatchers("/", "/index", "/about.html", "/register", "/public/**","/lobby", "/lobby/search","/searchfromlobby/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -23,11 +41,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .logout()
                 .permitAll();
+
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
-        auth.inMemoryAuthentication().withUser("drk").password("shh").roles("USER");
-    }
+
+
+
+//    @Bean
+//    public DaoAuthenticationProvider authenticationProvider() {
+//        final DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+//        authProvider.setUserDetailsService(customerDetailsService);
+//        authProvider.setPasswordEncoder(encoder());
+//        return authProvider;
+//    }
+//    @Bean
+//    public PasswordEncoder encoder() {
+//        return new BCryptPasswordEncoder(11);
+//    }
+//    
+    
+    
+    
+    
+    
+    
 }

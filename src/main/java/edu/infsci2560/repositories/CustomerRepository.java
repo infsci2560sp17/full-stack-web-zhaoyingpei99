@@ -6,11 +6,10 @@
 package edu.infsci2560.repositories;
 
 import edu.infsci2560.models.Customer;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import org.springframework.data.repository.CrudRepository;
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-public interface CustomerRepository extends CrudRepository<Customer, Long> {
+    Customer findByUsername(final String username);   
 
-    List<Customer> findByLastName(String lastName);
 }

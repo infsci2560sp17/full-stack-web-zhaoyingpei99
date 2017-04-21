@@ -1,3 +1,4 @@
+
 package edu.infsci2560;
 
 import edu.infsci2560.models.FoodDetail;
@@ -21,30 +22,30 @@ public class FullStackWebApplication {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(FullStackWebApplication.class, args);
         
-        PublicFoodRepository publicrepository = ctx.getBean(PublicFoodRepository.class);
-        FoodDetailRepository fooddetailrepository = ctx.getBean(FoodDetailRepository.class);
-        
-        publicrepository.save(new publicFoods(1L, "General Tso's chicken", CookingStyle.Chinese));
-        publicrepository.save(new publicFoods(2L, "Tako", CookingStyle.Mexican));
-        publicrepository.save(new publicFoods(3L, "Onion soup", CookingStyle.French));
-        publicrepository.save(new publicFoods(4L, "Ramen", CookingStyle.Japanese));
-        publicrepository.save(new publicFoods(5L, "CheeseBurger", CookingStyle.American));   
-        publicrepository.save(new publicFoods(6L, "Hawaii Pizza", CookingStyle.Italian));        
-        
-        
-        
-        
-        FoodDetail fd4 = new FoodDetail(4L, "boil water and do anything you want!"," love this!!");
-        
-        fooddetailrepository.save(new FoodDetail(1L, "start with chicken with the kind of crisp, craggy, deep-fried coating that Colonel Sanders himself would be proud of (what is it with military men and fried chicken anyway?), then toss it in a sweet and punchy sauce flavored with garlic, ginger, scallions, and dried chilies. Throw it all on a plate with some steamed white rice and you've got one of America's most popular dishes."," Awesome!!!!!"));        
-        fooddetailrepository.save(new FoodDetail(2L, "i just make some tacos wth ground beef and than i add some onins wth the ground beef its tast good and 2/3 cup water shredded lettuce diced tomatoes tacos shells and if you want to add jalapenos is good and spicy to"," Surprisingly tasty even with so few ingredients. Quick and easy!"));        
-        fooddetailrepository.save(new FoodDetail(3L, "Your soup will only be as good as the stock you are using. This soup traditionally is made with beef stock, though sometimes a good beef stock can be hard to come by and expensive to make."," Not so good!"));            
-        fooddetailrepository.save(fd4);        
-        fooddetailrepository.save(new FoodDetail(5L, "Heat the olive oil in a large skillet over medium heat. Cook the burgers, turning occasionally, to desired temperature, 15 to 20 minutes for well done. Top each patty with a slice of Swiss cheese shortly before removing from the skillet; serve on hamburger buns."," Tasty!"));        
-        fooddetailrepository.save(new FoodDetail(6L, "Hawaiian pizza is made up of a dough crust, tomato sauce, ham pieces, and pineapple rings or chunks. Often versions will have mixed peppers, mushrooms and bacon."," Disgusting"));        
-        
+//        PublicFoodRepository publicrepository = ctx.getBean(PublicFoodRepository.class);
+//        FoodDetailRepository fooddetailrepository = ctx.getBean(FoodDetailRepository.class);
+////        
+//        publicrepository.save(new publicFoods(1L, "General Tso's chicken", CookingStyle.Chinese));
+//        publicrepository.save(new publicFoods(2L, "Tako", CookingStyle.Mexican));
+//        publicrepository.save(new publicFoods(3L, "Onion soup", CookingStyle.French));
+//        publicrepository.save(new publicFoods(4L, "Ramen", CookingStyle.Japanese));
+//        publicrepository.save(new publicFoods(5L, "CheeseBurger", CookingStyle.American));   
+//        publicrepository.save(new publicFoods(6L, "Hawaii Pizza", CookingStyle.Italian));        
+////        
+//        
+//        
+//        
+//        FoodDetail fd4 = new FoodDetail(4L, "boil water and do anything you want!"," love this!!");
+////        
+//        fooddetailrepository.save(new FoodDetail(1L, "start with chicken with the kind of crisp, craggy, deep-fried coating that Colonel Sanders himself would be proud of (what is it with military men and fried chicken anyway?), then toss it in a sweet and punchy sauce flavored with garlic, ginger, scallions, and dried chilies. Throw it all on a plate with some steamed white rice and you've got one of America's most popular dishes."," Awesome!!!!!"));        
+//        fooddetailrepository.save(new FoodDetail(2L, "i just make some tacos wth ground beef and than i add some onins wth the ground beef its tast good and 2/3 cup water shredded lettuce diced tomatoes tacos shells and if you want to add jalapenos is good and spicy to"," Surprisingly tasty even with so few ingredients. Quick and easy!"));        
+//        fooddetailrepository.save(new FoodDetail(3L, "Your soup will only be as good as the stock you are using. This soup traditionally is made with beef stock, though sometimes a good beef stock can be hard to come by and expensive to make."," Not so good!"));            
+//        fooddetailrepository.save(fd4);        
+//        fooddetailrepository.save(new FoodDetail(5L, "Heat the olive oil in a large skillet over medium heat. Cook the burgers, turning occasionally, to desired temperature, 15 to 20 minutes for well done. Top each patty with a slice of Swiss cheese shortly before removing from the skillet; serve on hamburger buns."," Tasty!"));        
+//        fooddetailrepository.save(new FoodDetail(6L, "Hawaiian pizza is made up of a dough crust, tomato sauce, ham pieces, and pineapple rings or chunks. Often versions will have mixed peppers, mushrooms and bacon."," Disgusting"));        
+//        
 //        fooddetailrepository.save(new FoodDetail(4L, "boil water and do anything you want!"," love this!!"));        
-    
+//    
     }
 
 
