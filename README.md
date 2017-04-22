@@ -37,7 +37,7 @@ TODO : Please list key features of your project.
 
 ### Landing Page
 
-TODO : please provide a description of your landing page inluding a screen shot ![](https://.../image.JPG)
+TODO : please provide a description of your landing page inluding a screen shot ![](http://imgur.com/JkpF9UL)
 
 ### User Input Form
 
