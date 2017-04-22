@@ -7,6 +7,7 @@ import edu.infsci2560.models.CookingStyle;
 import edu.infsci2560.models.publicFoods;
 import edu.infsci2560.repositories.FoodtoCustomerRepository;
 import edu.infsci2560.repositories.FoodRepository;
+import edu.infsci2560.repositories.FoodDetailsRepository;
 import edu.infsci2560.repositories.PublicFoodRepository;
 import edu.infsci2560.repositories.FoodDetailRepository;
 import edu.infsci2560.repositories.CustomerRepository;
@@ -50,7 +51,8 @@ public class LobbyController {
     @Autowired
     private CustomerRepository customerrepository;
 
-    
+    @Autowired
+    private FoodDetailsRepository fooddetailsrepository;
     
     
     
@@ -61,18 +63,23 @@ public class LobbyController {
         return mv1;
     }
     
-    @RequestMapping(value = "lobby/search", method = RequestMethod.GET)
-    public ModelAndView search(@RequestParam("foodid") Long id, @RequestParam(value = "alert",required = false) String alert, RedirectAttributes redirectAttrs) {
+    @RequestMapping(value = "lobby/fooddetail", method = RequestMethod.GET)
+    public ModelAndView search(@RequestParam("foodid") Long id, @RequestParam(value = "alert",required = false) String alert, RedirectAttributes redirectAttrs,HttpServletRequest request) {
         
-        ModelAndView mv1 = new ModelAndView("searchfromlobby");
-        if (alert == null) {
-            alert = "Here it is!";
-        }
-
-        mv1.addObject("alert", alert);
-        mv1.addObject("food", publicfoodrepository.findOne(id));
-        mv1.addObject("foodreviews", fooddetailrepository.findOne(id).getReviews());
-        mv1.addObject("foodrecipes", fooddetailrepository.findOne(id).getRecipes());
+        ModelAndView mv1 = new ModelAndView("fooddetail");
+//        if (alert == null) {
+//            alert = "Here it is!";
+//        }
+        
+        String username = request.getRemoteUser();
+        Long userid = customerrepository.findByUsername(username).getId();
+        
+        
+//        mv1.addObject("alert", alert);
+        mv1.addObject("fooddetails", fooddetailsrepository.findByFoodid(id));
+        mv1.addObject("id", id);
+//        mv1.addObject("foodreviews", fooddetailrepository.findOne(id).getReviews());
+//        mv1.addObject("foodrecipes", fooddetailrepository.findOne(id).getRecipes());
         
         return mv1;
     }

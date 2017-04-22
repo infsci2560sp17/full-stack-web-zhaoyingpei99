@@ -1,11 +1,11 @@
 
 package edu.infsci2560;
 
-import edu.infsci2560.models.FoodDetail;
+import edu.infsci2560.models.FoodDetails;
 import edu.infsci2560.models.FoodtoCustomer;
 import edu.infsci2560.models.publicFoods;
 import edu.infsci2560.models.CookingStyle;
-import edu.infsci2560.repositories.FoodDetailRepository;
+import edu.infsci2560.repositories.FoodDetailsRepository;
 import edu.infsci2560.repositories.FoodtoCustomerRepository;
 import edu.infsci2560.repositories.PublicFoodRepository;
 
@@ -24,25 +24,29 @@ public class FullStackWebApplication {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(FullStackWebApplication.class, args);
         
-        PublicFoodRepository publicrepository = ctx.getBean(PublicFoodRepository.class);
-//        FoodDetailRepository fooddetailrepository = ctx.getBean(FoodDetailRepository.class);
-//          FoodtoCustomerRepository repository = ctx.getBean(FoodtoCustomerRepository.class);
-//          
-//          FoodtoCustomer ftc = new FoodtoCustomer();
-//          ftc.setCustomerId(1L);
-//          ftc.setFoodId(4L);
-//          
-//          repository.save(ftc);
-        publicrepository.save(new publicFoods(1L, "General Tso's chicken", CookingStyle.Chinese, 1));
-        publicrepository.save(new publicFoods(2L, "Tako", CookingStyle.Mexican, 1));
-        publicrepository.save(new publicFoods(3L, "Onion soup", CookingStyle.French, 1));
-        publicrepository.save(new publicFoods(4L, "Ramen", CookingStyle.Japanese, 1));
-        publicrepository.save(new publicFoods(5L, "CheeseBurger", CookingStyle.American, 1));   
-        publicrepository.save(new publicFoods(6L, "Hawaii Pizza", CookingStyle.Italian, 1));        
-////        
+//        PublicFoodRepository publicrepository = ctx.getBean(PublicFoodRepository.class);
+//        FoodDetailsRepository fooddetailsrepository = ctx.getBean(FoodDetailsRepository.class);
+////          FoodtoCustomerRepository repository = ctx.getBean(FoodtoCustomerRepository.class);
+////          
+////          FoodtoCustomer ftc = new FoodtoCustomer();
+////          ftc.setCustomerId(1L);
+////          ftc.setFoodId(4L);
+////          
+////          repository.save(ftc);
+//        publicrepository.save(new publicFoods(1L, "General Tso's chicken", CookingStyle.Chinese, 1));
+//        publicrepository.save(new publicFoods(2L, "Tako", CookingStyle.Mexican, 1));
+//        publicrepository.save(new publicFoods(3L, "Onion soup", CookingStyle.French, 1));
+//        publicrepository.save(new publicFoods(4L, "Ramen", CookingStyle.Japanese, 1));
+//        publicrepository.save(new publicFoods(5L, "CheeseBurger", CookingStyle.American, 1));   
+//        publicrepository.save(new publicFoods(6L, "Hawaii Pizza", CookingStyle.Italian, 1));        
+//////        
+//        FoodDetails fds = new FoodDetails(4L, 3L, "zyp", 4, " love this", "boil water and do anything you want!");
+//        FoodDetails fds2 = new FoodDetails(4L, 3L, "zyp", 4, " 123123", "bqweqeo anything you want!");
+//        FoodDetails fds3 = new FoodDetails(4L, 3L, "zyp", 5, " 123vdfdd", "bqweqeo cmelkjelwjrlwejrwrwlej you want!");
+//        fooddetailsrepository.save(fds);
+//        fooddetailsrepository.save(fds2);
+//        fooddetailsrepository.save(fds3);
         
-//        
-//        
 //        FoodDetail fd4 = new FoodDetail(4L, "boil water and do anything you want!"," love this!!");
 ////        
 //        fooddetailrepository.save(new FoodDetail(1L, "start with chicken with the kind of crisp, craggy, deep-fried coating that Colonel Sanders himself would be proud of (what is it with military men and fried chicken anyway?), then toss it in a sweet and punchy sauce flavored with garlic, ginger, scallions, and dried chilies. Throw it all on a plate with some steamed white rice and you've got one of America's most popular dishes."," Awesome!!!!!"));        

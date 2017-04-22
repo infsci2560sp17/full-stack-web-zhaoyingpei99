@@ -159,36 +159,24 @@
           <table id="keywords" cellspacing="0" cellpadding="0">
             <thead>
               <tr>
-                <th><span>id</span></th>
-                <th><span>name</span></th>
-                <th><span>style</span></th>
+                <th><span>receipe</span></th>
+                <th><span>review</span></th>
+                <th><span>rating</span></th>
+                <th><span>customer</span></th>
               </tr>
             </thead>
             <tbody>
-                <tr data-th-each="food : ${publicfoods}">
-                    <td class="lalign" data-th-text="${food.id}"></td>
-                    <td data-th-text="${food.title}"></td>
-                    <td data-th-text="${food.cookingStyle}"></td>
+                <tr data-th-each="fooddetail : ${fooddetails}">
+                    <td class="lalign" data-th-text="${fooddetail.receipes}"></td>
+                    <td data-th-text="${fooddetail.reviews}"></td>
+                    <td data-th-text="${fooddetail.stars}"></td>
+                    <td data-th-text="${fooddetail.customer}"></td>
                 </tr>
              
             </tbody>
           </table>
           
-                  <hr />
-                  
-                <div id="searchinlobby">
-                 <form data-th-action="@{/lobby/fooddetail}" name="searchinlobb" method="get">
-                    ID: <input type="number" name="foodid" /><br />
-                    <input type="submit" value="Look into food details by ID"/>
-                 </form>
-                </div>
-                
-                <div id="addtofavourite">
-                 <form data-th-action="@{/lobby/add}" name="searchinlobb" method="post">
-                    ID: <input type="number" name="foodid" /><br />
-                    <input type="submit" value="Choose food and Add to your favourite"/>
-                 </form>
-                </div>
+
                             
   
          </div> 
@@ -196,8 +184,13 @@
 
 
         <p>Click <a data-th-href="@{/foods}">here</a> to come back to your favourite foods.</p>
-
-
+        <p data-th-text="${id}"></p>
+        <form data-th-action="@{/fooddetail/add}" name="addreview" method="post">
+            Please Type FoodID: <input type="number" name="id" />  <input type="submit" value="submit your review"/><br />
+            Please Type your rating(of 5): <input type="number" name="star" /> 
+            Please Type your review: <textarea rows="4" cols="50" name="review"/>
+            Please Type your receipe: <textarea rows="4" cols="50" name="receipe"/>
+        </form>  
                 
         
        
