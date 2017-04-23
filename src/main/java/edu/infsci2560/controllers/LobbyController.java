@@ -2,10 +2,8 @@ package edu.infsci2560.controllers;
 
 import edu.infsci2560.models.FoodtoCustomer;
 import edu.infsci2560.repositories.FoodtoCustomerRepository;
-import edu.infsci2560.repositories.FoodRepository;
 import edu.infsci2560.repositories.FoodDetailsRepository;
 import edu.infsci2560.repositories.PublicFoodRepository;
-import edu.infsci2560.repositories.FoodDetailRepository;
 import edu.infsci2560.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,14 +20,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class LobbyController {
     
-    @Autowired
-    private FoodRepository repository;
     
     @Autowired
     private PublicFoodRepository publicfoodrepository;
     
-    @Autowired
-    private FoodDetailRepository fooddetailrepository;
     
     @Autowired
     private FoodtoCustomerRepository foodtocustomerrepository;
