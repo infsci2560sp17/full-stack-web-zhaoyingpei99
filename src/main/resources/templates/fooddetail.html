@@ -4,79 +4,118 @@
         <title>Public Food Set</title>
     </head>
     <style > 
-        @import url('http://fonts.googleapis.com/css?family=Amarante');
+            @import url(http://fonts.googleapis.com/css?family=Cabin:700);
         
-        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-          margin: 0;
-          padding: 0;
+        /* HTML5 Boilerplate accessible hidden styles */
+        
+        [type="radio"] {
           border: 0;
-          font-size: 100%;
-          font: inherit;
-          vertical-align: baseline;
-          outline: none;
-          -webkit-font-smoothing: antialiased;
-          -webkit-text-size-adjust: 100%;
-          -ms-text-size-adjust: 100%;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
         }
-        html { overflow-y: scroll; }
-        body { 
-          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 100%;
+        
+        
+        /* One radio button per line */
+        
+        label {
+          display: block;
+          cursor: pointer;
+          line-height: 2;
+          font-size: 1em;
+          text-align: middle;
+        }
+        
+        [type="radio"] + span {
+          display: block;
+        }
+        
+        
+        /* the basic, unchecked style */
+        
+        [type="radio"] + span:before {
+          content: '';
+          display: inline-block;
+          width: 0.5em;
+          height: 0.5em;
+          vertical-align: 0em;
+          border-radius: 1em;
+          border: 0.125em solid #fff;
+          box-shadow: 0 0 0 0.15em #000;
+          margin-right: 0.75em;
+          transition: 0.5s ease all;
+        }
+        
+        
+        /* the checked style using the :checked pseudo class */
+        
+        [type="radio"]:checked + span:before {
+          background: green;
+          box-shadow: 0 0 0 0.25em #000;
+        }
+        
+        
+        /* never forget focus styling */
+        
+        [type="radio"]:focus + span:after {
+          content: '\0020\2190';
+          font-size: 1em;
           line-height: 1;
-          color: #585858;
-          padding: 22px 10px;
-          padding-bottom: 55px;
-          background-color:#FFFFCC;
-          text-align: center;
+          vertical-align: 0em;
         }
         
-        ::selection { background: #5f74a0; color: #fff; }
-        ::-moz-selection { background: #5f74a0; color: #fff; }
-        ::-webkit-selection { background: #5f74a0; color: #fff; }
-        
-        br { display: block; line-height: 1.6em; } 
-        
-        article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-        ol, ul { list-style: none; }
-        
-        input, textarea { 
-          -webkit-font-smoothing: antialiased;
-          -webkit-text-size-adjust: 100%;
-          -ms-text-size-adjust: 100%;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          outline: none; 
+        #wrapper {
+          border-radius: 1em;
+          display: block;
+          background: #fff;
+          margin:30px 100px 10px 100px;
+          padding: 10px 17px;
+          background-color: rgba(255, 255, 255, 0.6);
         }
         
-        blockquote, q { quotes: none; }
-        blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
-        strong, b { font-weight: bold; } 
         
-        table { border-collapse: collapse; border-spacing: 0; }
-        img { border: 0; max-width: 100%; }
+        /* Nothing to see here. */
         
-        h1 { 
-          font-family: 'Amarante', Tahoma, sans-serif;
-          font-weight: bold;
-          font-size: 3.6em;
-          line-height: 2.0em;
-          margin-bottom: 10px;
+        body {
+          background-image: url("http://static.wixstatic.com/media/d0f16d_2a74bb0f4f9d438b887101d51113d046~mv2_d_2500_1563_s_2.jpg");
+          font-family: Cabin, serif;
           text-align: center;
+          background-repeat: repeat;
+        }
+        
+        fieldset {
+          text-align:center;
+          width: 800px;
+          height: 300px;
+          font-size: 1em;
+          border: 2px solid #000;
+          padding: 2em;
+          border-radius: 2em;
+          margin:0 auto;
+        }
+        
+        legend {
+          color: #fff;
+          background: #000;
+          padding: 0.25em 1em;
+          border-radius: 1em;
+          padding-right: -10px
+        }
+        
+        p {
+          text-align: center;
+          font-size: 18px;
         }
         
         
         /** page structure **/
-        #wrapper {
-          display: block;
-          width: 850px;
-          background: #fff;
+        
+        #keywords2 {
           margin: 0 auto;
-          padding: 10px 17px;
-          -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
         }
         
         #keywords {
@@ -87,66 +126,104 @@
           border: 1px solid #bbb;
         }
         
-        
         #keywords thead {
           cursor: pointer;
           background: #c9dff0;
         }
-        #keywords thead tr th { 
+        
+        #keywords thead tr th {
           font-weight: bold;
           padding: 12px 30px;
           padding-left: 45px;
-
         }
-        #keywords thead tr th span { 
+        
+        #keywords thead tr th span {
           padding-right: 30px;
           background-repeat: no-repeat;
           background-position: 100% 100%;
         }
         
-        #keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+        #keywords thead tr th.headerSortUp,
+        #keywords thead tr th.headerSortDown {
           background: #acc8dd;
         }
         
-
-        
-        #keywords tbody tr { 
+        #keywords tbody tr {
           color: #555;
+          background-color:white;
         }
+        
         #keywords tbody tr td {
           text-align: center;
           padding: 15px 10px;
+          border: 1px solid #bbb;
         }
+        
         #keywords tbody tr td.lalign {
           text-align: center;
         }
         
-        
-        
-        
-        #keywords2 {
-          margin: 0 auto;
-          font-size: 1.3em;
-          margin-bottom: 15px;
+        hr {
+          height: 1px;
+          background-color: black;
+          border: none;
+        }
+        button {
+          color: #454545;
+          background: transparent;
+          border-width: 2px;
+          border-style: solid;
+          border-color: #454545;
+          position: relative;
+          margin: 0.8em;
+          display: inline-block;
+          padding: 0.3em 0.2em;
+          transition: all 0.3s ease-in-out;
+          text-align: center;
+          font-family: Cabin, serif;
+        font-size:13px;
         }
         
+        button:before,
+        button:after {
+          content: '';
+          display: block;
+          position: absolute;
+          border-color: #454545;
+          box-sizing: border-box;
+          border-style: solid;
+          width: 1em;
+          height: 1em;
+          transition: all 0.3s ease-in-out
+        }
         
-        #keywords2 thead {
-          cursor: pointer;
-          background: #c9dff0;
-        }
-        #keywords2 thead tr th { 
-          font-weight: bold;
-          padding: 12px 10px;
-        }
-        #keywords2 thead tr th span { 
-          background-repeat: no-repeat;
-          background-position: 100% 100%;
+        button:before {
+          top: -6px;
+          left: -6px;
+          border-width: 2px 0 0 2px;
+          z-index: 5;
         }
         
-        #keywords2 thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
-          background: #acc8dd;
+        button:after {
+          bottom: -6px;
+          right: -6px;
+          border-width: 0 2px 2px 0;
         }
+        
+        button:hover:before,
+        button:hover:after {
+          width: calc(100% + 12px);
+          height: calc(100% + 12px);
+          border-color: #fff
+        }
+        
+        button:hover {
+          color: #353535;
+          background-color: #fff;
+          border-color: #fff
+        }
+        
+
 
 
 
@@ -177,26 +254,34 @@
           </table>
           
 
-                            
-  
-         </div> 
-         
-
-
-        <p>Click <a data-th-href="@{/foods}">here</a> to come back to your favourite foods.</p>
-        <p data-th-text="${id}"></p>
-        <form data-th-action="@{/fooddetail/add}" name="addreview" method="post">
-            Please Type FoodID: <input type="number" name="id" />  <input type="submit" value="submit your review"/><br />
-            Please Type your rating(of 5): <input type="number" name="star" /> 
-            Please Type your review: <textarea rows="4" cols="50" name="review"/>
-            Please Type your receipe: <textarea rows="4" cols="50" name="receipe"/>
-        </form>  
-                
+         <hr />
+            <fieldset>
+              <legend>Update food</legend>
+              Food id : <p data-th-text="${id}"></p>
+              <form data-th-action="@{/fooddetail/add}" name="addreview" method="post">
+                <label>
+                    Please Type FoodID : <input type="number" name="id" />
+                    Type your review: <textarea rows="3" cols="30" name="review"/>
+                  </label>
+                <br/>
+                <label>
+                    Type your rating(of 5): <input type="number" name="star" />
         
-       
-        <hr />       
-        <form data-th-action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+                    Type your receipe: <textarea rows="3" cols="30" name="receipe"/>
+                  </label>
+                <br/>
+                <br/>
+     
+                <button type="submit" value="submit your review"> Submit your review</button>
+            </form>
+          </fieldset>
+          <p>Click <a data-th-href="@{/foods}">here</a> to see your foods or <a data-th-href="@{/lobby}">here</a> back to lobby.</p>
+          <hr />
+          </div>
+            <form data-th-action="@{/logout}" method="post">
+              <input type="submit" value="Sign Out" />
+            </form>
+
+
     </body>
 </html>

@@ -1,85 +1,123 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>User Home</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    </head>
 
+    <head>
+      <title>User Home</title>
+    </head>
     
-    <style > 
-        @import url('http://fonts.googleapis.com/css?family=Amarante');
+    
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Cabin:700);
         
-        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-          margin: 0;
-          padding: 0;
+        /* HTML5 Boilerplate accessible hidden styles */
+        
+        [type="radio"] {
           border: 0;
-          font-size: 100%;
-          font: inherit;
-          vertical-align: baseline;
-          outline: none;
-          -webkit-font-smoothing: antialiased;
-          -webkit-text-size-adjust: 100%;
-          -ms-text-size-adjust: 100%;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
         }
-        html { overflow-y: scroll; }
-        body { 
-          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 100%;
+        
+        
+        /* One radio button per line */
+        
+        label {
+          display: block;
+          cursor: pointer;
+          line-height: 2;
+          font-size: 1em;
+          text-align: left;
+        }
+        
+        [type="radio"] + span {
+          display: block;
+        }
+        
+        
+        /* the basic, unchecked style */
+        
+        [type="radio"] + span:before {
+          content: '';
+          display: inline-block;
+          width: 0.5em;
+          height: 0.5em;
+          vertical-align: 0em;
+          border-radius: 1em;
+          border: 0.125em solid #fff;
+          box-shadow: 0 0 0 0.15em #000;
+          margin-right: 0.75em;
+          transition: 0.5s ease all;
+        }
+        
+        
+        /* the checked style using the :checked pseudo class */
+        
+        [type="radio"]:checked + span:before {
+          background: green;
+          box-shadow: 0 0 0 0.25em #000;
+        }
+        
+        
+        /* never forget focus styling */
+        
+        [type="radio"]:focus + span:after {
+          content: '\0020\2190';
+          font-size: 1em;
           line-height: 1;
-          color: #585858;
-          padding: 22px 10px;
-          padding-bottom: 55px;
-          background-color:#FFFFCC;
-          text-align: center;
+          vertical-align: 0em;
         }
         
-        ::selection { background: #5f74a0; color: #fff; }
-        ::-moz-selection { background: #5f74a0; color: #fff; }
-        ::-webkit-selection { background: #5f74a0; color: #fff; }
-        
-        br { display: block; line-height: 1.6em; } 
-        
-        article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-        ol, ul { list-style: none; }
-        
-        input, textarea { 
-          -webkit-font-smoothing: antialiased;
-          -webkit-text-size-adjust: 100%;
-          -ms-text-size-adjust: 100%;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          outline: none; 
+        #wrapper {
+          border-radius: 1em;
+          display: block;
+          background: #fff;
+          margin:30px 100px 10px 100px;
+          padding: 10px 17px;
+          background-color: rgba(255, 255, 255, 0.6);
         }
         
-        blockquote, q { quotes: none; }
-        blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
-        strong, b { font-weight: bold; } 
         
-        table { border-collapse: collapse; border-spacing: 0; }
-        img { border: 0; max-width: 100%; }
+        /* Nothing to see here. */
         
-        h1 { 
-          font-family: 'Amarante', Tahoma, sans-serif;
-          font-weight: bold;
-          font-size: 3.6em;
-          line-height: 2.0em;
-          margin-bottom: 10px;
+        body {
+          background-image: url("http://static.wixstatic.com/media/d0f16d_2a74bb0f4f9d438b887101d51113d046~mv2_d_2500_1563_s_2.jpg");
+          font-family: Cabin, serif;
           text-align: center;
+
+          background-repeat: repeat;
+        }
+        
+        fieldset {
+          width: 250px;
+          height: 300px;
+          font-size: 1em;
+          border: 2px solid #000;
+          padding: 2em;
+          border-radius: 0.5em;
+        }
+        
+        legend {
+          color: #fff;
+          background: #000;
+          padding: 0.25em 1em;
+          border-radius: 1em;
+          padding-right: -10px
+        }
+        
+        p {
+          text-align: center;
+          font-size: 18px;
         }
         
         
         /** page structure **/
-        #wrapper {
-          display: block;
-          width: 850px;
-          background: #fff;
+        
+        #keywords2 {
           margin: 0 auto;
-          padding: 10px 17px;
-          -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
         }
         
         #keywords {
@@ -90,166 +128,267 @@
           border: 1px solid #bbb;
         }
         
-        
         #keywords thead {
           cursor: pointer;
           background: #c9dff0;
         }
-        #keywords thead tr th { 
+        
+        #keywords thead tr th {
           font-weight: bold;
           padding: 12px 30px;
           padding-left: 45px;
-
         }
-        #keywords thead tr th span { 
+        
+        #keywords thead tr th span {
           padding-right: 30px;
           background-repeat: no-repeat;
           background-position: 100% 100%;
         }
         
-        #keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+        #keywords thead tr th.headerSortUp,
+        #keywords thead tr th.headerSortDown {
           background: #acc8dd;
         }
         
-
-        
-        #keywords tbody tr { 
+        #keywords tbody tr {
           color: #555;
+          background-color:white;
+
         }
+        
         #keywords tbody tr td {
           text-align: center;
           padding: 15px 10px;
         }
+        
         #keywords tbody tr td.lalign {
           text-align: center;
+          
         }
         
-        
-        
-        
-        #keywords2 {
-          margin: 0 auto;
-          font-size: 1.3em;
-          margin-bottom: 15px;
+        hr {
+          height: 1px;
+          background-color: black;
+          border: none;
+        }
+        button {
+          color: #454545;
+          background: transparent;
+          border-width: 2px;
+          border-style: solid;
+          border-color: #454545;
+          position: relative;
+          margin: 0.8em;
+          display: inline-block;
+          padding: 0.3em 0.2em;
+          transition: all 0.3s ease-in-out;
+          text-align: center;
+          font-family: Cabin, serif;
+          font-weight:bold;
         }
         
+        button:before,
+        button:after {
+          content: '';
+          display: block;
+          position: absolute;
+          border-color: #454545;
+          box-sizing: border-box;
+          border-style: solid;
+          width: 1em;
+          height: 1em;
+          transition: all 0.3s ease-in-out
+        }
         
-        #keywords2 thead {
-          cursor: pointer;
-          background: #c9dff0;
-        }
-        #keywords2 thead tr th { 
-          font-weight: bold;
-          padding: 12px 10px;
-        }
-        #keywords2 thead tr th span { 
-          background-repeat: no-repeat;
-          background-position: 100% 100%;
+        button:before {
+          top: -6px;
+          left: -6px;
+          border-width: 2px 0 0 2px;
+          z-index: 5;
         }
         
-        #keywords2 thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
-          background: #acc8dd;
+        button:after {
+          bottom: -6px;
+          right: -6px;
+          border-width: 0 2px 2px 0;
+        }
+        
+        button:hover:before,
+        button:hover:after {
+          width: calc(100% + 12px);
+          height: calc(100% + 12px);
+          border-color: #fff
+        }
+        
+        button:hover {
+          color: #353535;
+          background-color: #fff;
+          border-color: #fff
         }
 
 
-
-        
-    </style> 
+    </style>
     
     <body>
-        <div id="wrapper">
-          <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s favourite food list!</h1>
-          
-          <table id="keywords" class="table table-hover" cellspacing="0" cellpadding="0">
-            <thead>
-              <tr>
-                <th><span>id</span></th>
-                <th><span>name</span></th>
-                <th><span>style</span></th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr data-th-each="food : ${foods}">
-                    <td class="lalign" data-th-text="${food.id}"></td>
-                    <td data-th-text="${food.title}"></td>
-                    <td data-th-text="${food.cookingStyle}"></td>
-                </tr>
-             
-            </tbody>
-          </table>
-          
-                  <hr />
-        <table id="keywords2" cellspacing="0" cellpadding="0">
-         <thead>
+      <div id="wrapper">
+        <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s favourite food list!</h1>
+    
+        <table id="keywords" class="table table-hover">
+          <thead>
             <tr>
-                <th><div id="addpersonal">
+              <th><span>id</span></th>
+              <th><span>name</span></th>
+              <th><span>style</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-th-each="food : ${foods}">
+              <td class="lalign" data-th-text="${food.id}"></td>
+              <td data-th-text="${food.title}"></td>
+              <td data-th-text="${food.cookingStyle}"></td>
+            </tr>
+    
+          </tbody>
+        </table>
+    
+        <hr />
+        <table id="keywords2">
+          <thead>
+            <tr>
+              <th>
+                <div id="addpersonal">
+    
+                  <fieldset>
+                    <legend>Create Food</legend>
+                    
                     
                     <form data-th-action="@{/foods/add}" name="addFoodForm" method="post">
-                        Title: <input type="text" name="title" /><br />
-                        Cooking Style:<br />
-                        <input type="radio" name="cookingStyle" value="Others" checked="checked" /> Others<br />
-                        <input type="radio" name="cookingStyle" value="Chinese" /> Chinese<br />
-                        <input type="radio" name="cookingStyle" value="Mexican" /> Mexican<br />
-                        <input type="radio" name="cookingStyle" value="American" /> American<br />
-                        <input type="radio" name="cookingStyle" value="Japanese" /> Japanese<br />
-                        <input type="radio" name="cookingStyle" value="Italian" /> Italian<br />
-                        <input type="radio" name="cookingStyle" value="French" /> French<br />
-                        <input type="submit" value="Add food in your favorite"/>
+                      <label>
+                            Title: <input type="text" name="title" /><br />
+                      </label>
+                      <label> 
+                        <input type="radio" name="cookingStyle" value="Others" checked="checked" /><span>Others</span>
+                      </label>
+    
+                      <label >
+                        <input type="radio" name="cookingStyle" value="French" /> <span>French</span>
+                      </label>
+    
+                      <label>
+                        <input type="radio" name="cookingStyle" value="Chinese" /> <span>Chinese</span>
+                      </label> 
+    
+                      <label>
+                        <input type="radio" name="cookingStyle" value="Italian" /> <span>Italian</span>
+                      </label>
+    
+                      <label >
+                        <input type="radio" name="cookingStyle" value="Mexican" /> <span>Mexican</span>
+                      </label>
+    
+                      <label>
+                        <input type="radio" name="cookingStyle" value="American" /> <span>American</span>
+                      </label>
+                      
+                      <label>
+                        <input type="radio" name="cookingStyle" value="Japanese" /> <span>Japanese</span>
+                      </label>
+                     
+                        
+                        <button type="submit" value="Add food in your favorite"> Create food now!</button>
+    
                     </form>
-                </div></th>
-                
-        
-                <th><div id="addtopublic">
-                 <form data-th-action="@{/foods/addtopublic}" name="addFoodFormtoPublic" method="post">
-                    <input type="hidden" name="_method" value="PUT"/>
-                    ID: <input type="number" name="id" /><br />
-                    <input type="submit" value="Public your food by ID"/>
-                 </form>
-                </div></th>
-                
-        
-        
-                <th><div id="delete">
-                 <form data-th-action="@{/foods}" name="deletepersonalfood" method="post">
-                    <input type="hidden" name="_method" value="DELETE"/>
-                    ID: <input type="number" name="id" /><br />
-                    <input type="submit" value="Delete your food by ID"/>
-                 </form>
-                </div></th>
-                
-                
-                <th><div id="update">
-                 <form data-th-action="@{/foods}" name="updatepersonalfood" method="post">
-                    <input type="hidden" name="_method" value="PUT"/>
-                    ID: <input type="number" name="id" /><br />
-                     Cooking Style:<br />
-                    <input type="radio" name="cookingStyle" value="Others" checked="checked" /> Others<br />
-                    <input type="radio" name="cookingStyle" value="Chinese" /> Chinese<br />
-                    <input type="radio" name="cookingStyle" value="Mexican" /> Mexican<br />
-                    <input type="radio" name="cookingStyle" value="American" /> American<br />
-                    <input type="radio" name="cookingStyle" value="Japanese" /> Japanese<br />
-                    <input type="radio" name="cookingStyle" value="Italian" /> Italian<br />
-                    <input type="radio" name="cookingStyle" value="French" /> French<br />
-                    <input type="submit" value="Update your food by ID"/>
-                 </form>
-                </div></th>
+                </fieldset>
+                </div>
+              </th>
+    
+    
+              <th>
+                <fieldset>
+                  <legend>Public or Delete</legend>
+                  <label>
+                    <div id="addtopublic">
+                      <form data-th-action="@{/foods/addtopublic}" name="addFoodFormtoPublic" method="post">
+                        <input type="hidden" name="_method" value="PUT" /> ID: <input type="number" name="id" /><br />
+                        
+                        <button type="submit" value="Public your food by ID"> Public your food by ID</button>                        
+                      </form>
+                    </div>
+                  </label>
+    
+                  <label>
+                    <div id="delete">
+                      
+                      <form data-th-action="@{/foods}" name="deletepersonalfood" method="post">
+                        <input type="hidden" name="_method" value="DELETE" /> ID: <input type="number" name="id" /><br />
+                        
+                        <button type="submit" value="Delete your food by ID"> Delete your food by ID</button>
+                      </form>        
+                    </div>
+                  </label>
+                </fieldset>
+              </th>
+    
+    
+              <th>
+                <fieldset>
+                  <legend>Update food</legend>
+                  <div id="update">
+                    <form data-th-action="@{/foods}" name="updatepersonalfood" method="post">
+                      <label>
+                            Title: <input type="text" name="title" /><br />
+                      </label>
+                      <label> 
+                        <input type="radio" name="cookingStyle" value="Others" checked="checked" /><span>Others</span>
+                      </label>
+    
+                      <label >
+                        <input type="radio" name="cookingStyle" value="French" /> <span>French</span>
+                      
+                      </label>
+    
+                      <label>
+                        <input type="radio" name="cookingStyle" value="Chinese" /> <span>Chinese</span>
+                      </label> 
+    
+                      <label>
+                        <input type="radio" name="cookingStyle" value="Italian" /> <span>Italian</span>
+                      </label>
+    
+                      <label >
+                        <input type="radio" name="cookingStyle" value="Mexican" /> <span>Mexican</span>
+                      </label>
+    
+                      <label>
+                        <input type="radio" name="cookingStyle" value="American" /> <span>American</span>
+                      </label>
+                      
+                      <label>
+                        <input type="radio" name="cookingStyle" value="Japanese" /> <span>Japanese</span>
+                      </label>
+
+
+                        <button type="submit" value="update food"> Update your food by ID</button>
+    
+                    </form>                
+                   
+                  </div>
+                </fieldset>
+              </th>
+    
             </tr>
-         </thead>
+          </thead>
         </table>
-         </div> 
-
-
-
-
-                <p>Click <a data-th-href="@{/lobby}">here</a> go to the lobby.</p>
-        
-       
-        <hr />       
-        <form data-th-action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
-        
-        
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <p>Click <a data-th-href="@{/lobby}">here</a> go to the lobby.</p>
+      </div>
+    
+    
+      <hr />
+      <form data-th-action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" />
+      </form>
+    
+    
     </body>
+
 </html>
