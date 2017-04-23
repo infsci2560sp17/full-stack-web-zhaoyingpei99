@@ -82,6 +82,5 @@ public class LoginIT {
 		ResponseEntity<String> entity = LoginHelper.login(this.restTemplate, "/login", "user", "password");
                 
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
-		assertThat(entity.getHeaders().get("Set-Cookie")).isNotNull();
 	}		
 }
