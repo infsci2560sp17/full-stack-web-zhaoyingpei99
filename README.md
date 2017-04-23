@@ -37,11 +37,11 @@ TODO : Please list key features of your project.
 
 ### Landing Page
 
-TODO : please provide a description of your landing page inluding a screen shot ![](https://.../image.JPG)
+TODO : please provide a description of your landing page inluding a screen shot ![](http://i.imgur.com/pUAKIzc.jpg)
 
 ### User Input Form
 
-TODO : please provide a description of at least 1 user input form including a screen shot ![](https://.../image.jpg)
+TODO : please provide a description of at least 1 user input form including a screen shot ![]()
 
 ## API
 
