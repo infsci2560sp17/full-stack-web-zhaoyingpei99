@@ -27,38 +27,33 @@
 
 ## Key Features
 
-TODO : Please list key features of your project.
 
-* Key Feature 1
-* Key Feature 2
-* Key Feature N
+* Feature 1 : Users can sign up and have their own accounts
+* Feature 2 : Users can add food either by themselves or choose from food lobby (published food) 
+* Feature 3 : Users can add reviews, recipes and ratings for a food 
 
 ## Project Details
 
 ### Landing Page
 
-TODO : please provide a description of your landing page inluding a screen shot ![](http://i.imgur.com/pUAKIzc.jpg)
+Description : When entering welcome page, people can do: 1. Go directly to users' profile. 2. Browse lobby to see public food. [](http://i.imgur.com/pUAKIzc.jpg)
 
 ### User Input Form
 
-TODO : please provide a description of at least 1 user input form including a screen shot ![]()
+User Inpit Form in Users' Profile[](http://i.imgur.com/zU42klU.png)
 
+
+User Inpit Form when adding reviews[](http://i.imgur.com/GvwX4Zk.png)
 ## API
-
-TODO : please provide a description of at least 1 API including a sample of request data and response data in both XML and JSON format.
 
 ### API Method 1
 
-    POST photos/:id/tags
+    GET /public/api/publicfoods/2
 
-#### Parameters
-
-- **id** _(required)_ — The Photo ID to add tags for.
-- **tags** _(required)_ — Comma separated tags.
 
 #### Response
 
-A JSON or XMLobject containing the PhotoID and list of tags accepted.
+A JSON content: {"title":"Tako","cookingStyle":"Mexican","ifpublic":1,"id":2}
 
 #### Errors
 
@@ -70,39 +65,33 @@ All known errors cause the resource to return HTTP error code header together wi
 
 ##### Request
 
-    POST /v1/photos/123456/tags
+    POST /public/api/publicfoods/14
 
-##### Body
+##### Parameters
 
-    tags=cute,puppy
+    {
+        "title":"Noodles",
+        "cookingStyle":"Others",
+        "ifpublic":1,
+    }
 
 
 ##### JSON Response
 
 ```json
-{
-    "photoId": 123456,
-    "tags": ["cute", "puppy"]
-}
-```
+    {
+        "title":"Noodles",
+        "cookingStyle":"Others",
+        "ifpublic":1,
+    }
 
-##### XML Response
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<PhotoTags>
-    <photoId>123456</PhotoId>
-        <tags>
-            <tag>cute</tag>
-            <tag>puppy</tag>
-        </tags>
-</PhotoTags>
-```
 
 ## Technologies Used
 
-TODO : List all technologies used in your project
 
 - [Spring Boot](https://projects.spring.io/spring-boot/) - Takes an opinionated view of building production-ready Spring applications.
 - [Thymleaf](http://www.thymeleaf.org/) - Thymeleaf is a modern server-side Java template engine for both web and standalone environments.
 - [Maven](https://maven.apache.org/) - Apache Maven is a software project management and comprehension tool.
+- [Heroku](https://www.heroku.com/) - Heroku is a cloud Platform-as-a-Service (PaaS) supporting several programming languages that is used as a web application deployment model.
+- [Bootstrap](getbootstrap.com/) - Bootstrap is a free and open-source front-end web framework for designing websites and web applications.  
