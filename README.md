@@ -36,14 +36,17 @@
 
 ### Landing Page
 
-Description : When entering welcome page, people can do: 1. Go directly to users' profile. 2. Browse lobby to see public food. [](http://i.imgur.com/pUAKIzc.jpg)
+Description : When entering welcome page, people can do: 1. Go directly to users' profile. 2. Browse lobby to see public food. 
+![](http://i.imgur.com/pUAKIzc.jpg)
 
 ### User Input Form
 
-User Inpit Form in Users' Profile[](http://i.imgur.com/zU42klU.png)
+User Inpit Form in Users' Profile.
+![](http://i.imgur.com/zU42klU.png)
 
 
-User Inpit Form when adding reviews[](http://i.imgur.com/GvwX4Zk.png)
+User Inpit Form when adding reviews.
+![](http://i.imgur.com/GvwX4Zk.png)
 ## API
 
 ### API Method 1
